@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "App Ecommerce G70",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesernas/proyecto.git"
+  },
+  "author": "grupo70 Ucaldas 2022",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesernas/proyecto/issues"
+  },
+  "homepage": "https://github.com/jesernas/proyecto#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
