@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import conectarDB from './config/db.js';
 import usuarioRoutes from './routes/usuarioRoutes.js';
+import productoRoutes from './routes/productoRoutes.js';
+import ventasRoutes from './routes/ventasRoutes.js';
 
 dotenv.config();
 
@@ -34,10 +36,10 @@ app.use(cors(corsOptions));
 app.use('/api/usuarios', usuarioRoutes);
 
 //GESTION MODELO DE PRODUCTO
-//app.use('/api/productos', productoRoutes);
+app.use('/api/productos', productoRoutes);
 
 //GESTION MODELO DE VENTA
-//app.use('/api/ventas', ventasRoutes);
+app.use('/api/ventas', ventasRoutes);
 
 app.listen(PORT, () => {
 console.log(`Servidor funcionando en el puerto ${PORT} `);
