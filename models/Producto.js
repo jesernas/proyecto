@@ -15,14 +15,14 @@ const productoSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  image: {
-    url: String,
-    public_id: String,
-  },
   stock: {
     type: Number,
     required: true,
     trim: true,
+  },
+  image: {
+    url: String,
+    public_id: String,
   },
 });
 
