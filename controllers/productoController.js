@@ -66,9 +66,23 @@ const getProducto = async (req, res) => {
         return res.status(500).json({ msg: "No se encontro el producto" });
     }
 };
-const deleteProductos = async (req, res) => { 
-
-
+const deleteProductos = async (req, res) => {
+    try {
+        const productRemoved = await Producto.findByIdAndDelete(req.params.id);
+        if (!productRemoved) {
+            //const error = new Error("Token no valido"); 
+            return res.sendStatus(404);
+        } else {
+            if (productRemoved.image.public_id) {
+                await deleteImage(productRemoved.image.public_id);
+            }
+            return res.status(200).json({
+                msg: "Producto Eliminado exitosamente"
+            });
+        }
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
 };
 
 const updateProductos = async (req, res) => { 
@@ -101,7 +115,7 @@ const updateProductos = async (req, res) => {
                 };
             }
         }
-        
+
         await updateProducto.save();
         console.log(updateProducto);
 
